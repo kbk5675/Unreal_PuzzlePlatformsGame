@@ -1,14 +1,8 @@
-```
-코드를 입력하세요
-```
 # 알아가야 할 중요 포인트
 
 ### 1. UserWidget Interface 사용
-UserInterface를 사용하여 순수 가상함수를 만들어 사용한다 인터페이스를 생성하면 반드시 아래 클래스에만 작성한다.
-<br>
-C++에서는 순수가상함수를 반드시 어딘가 구현해줘야 빌드가 된다.
-<br>
-<br>
+UserInterface를 사용하여 순수 가상함수를 만들어 사용한다 인터페이스를 생성하면 반드시 아래 클래스에만 작성한다.<br>
+C++에서는 순수가상함수를 반드시 어딘가 구현해줘야 빌드가 된다.<br>
 ```
 // MenuInterface.h
 
@@ -37,7 +31,7 @@ public:
 ```
 <br>
 
-GameInstance가 UserInterface를 상속 받게 한다. <br> <br>
+GameInstance가 UserInterface를 상속 받게 한다. <br>
 ``` class PUZZLEPLATFORMS_API UPuzzlePlatformsGameInstance : public UGameInstance, public IMenuInterface ``` 
 <br>
 
@@ -46,9 +40,8 @@ GameInstance가 UserInterface를 상속 받게 한다. <br> <br>
 <br>
 UserWiget Class 2개 : InGameMenu, MainMenu 
 <br>
-MenuWidget.class를 하나 만들고 겹치는 내용들을 옮겨 주었다. 
-<br>
-<br>
+MenuWidget.class를 하나 만들고 겹치는 내용들을 옮겨 주었다. <br>
+
 ```
 //MenuWidget.h
 
@@ -67,9 +60,10 @@ protected:
 	IMenuInterface* MenuInterface;
 };
 
-```
+``` 
+
 <br>
-아래와 같이 상속받은 함수를 사용 Setup(), SetMenuInterface() <br> <br>
+아래와 같이 상속받은 함수를 사용 Setup(), SetMenuInterface() <br>
 
 
 ```
@@ -103,17 +97,13 @@ void UPuzzlePlatformsGameInstance::InGameLoadMenu()
 
 
 ### 3. UserWidget의 기능 WidgetSwitcher
-WidgetSwitcher는 같은 인덱스 내에 있는 Widget들을 이벤트를 이용해 번갈아 보여줄 수 있다. 여기서 어떤 위젯을 바꿔줄 지 인수를 정해줘야하는데 인수값이 UWidget이라 헤더에서 UWidget으로 선언해주었다.
-
-<br><br>
+WidgetSwitcher는 같은 인덱스 내에 있는 Widget들을 이벤트를 이용해 번갈아 보여줄 수 있다. 여기서 어떤 위젯을 바꿔줄 지 인수를 정해줘야하는데 인수값이 UWidget이라 헤더에서 UWidget으로 선언해주었다.<br>
 ```
 // MainMenu.h
 
 	UPROPERTY(meta = (BindWidget))
 	class UWidget* JoinMenu;
 ```
-
-<br>
 ```
 // MainMenu.cpp
 
