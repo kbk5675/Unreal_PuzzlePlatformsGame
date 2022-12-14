@@ -31,7 +31,7 @@ public:
 ```
 <br>
 
-GameInstance가 UserInterface를 상속 받게 한다. <br>
+GameInstance가 UserInterface를 상속 받게 한다. <br><br>
 ``` class PUZZLEPLATFORMS_API UPuzzlePlatformsGameInstance : public UGameInstance, public IMenuInterface ``` 
 <br>
 
