@@ -67,11 +67,11 @@ protected:
 
 ```
 <br>
+아래와 같이 상속받은 함수를 사용( Setup(), SetMenuInterface() )
 <br>
 ```
 // PuzzlePlatformsGameInstance.cpp
 
-// 상속받은 함수를 사용( Setup(), SetMenuInterface() )
 void UPuzzlePlatformsGameInstance::LoadMenu()
 {
 	if (!ensure( MainMenuClass!= nullptr)) return;
