@@ -97,7 +97,8 @@ void UPuzzlePlatformsGameInstance::InGameLoadMenu()
 
 
 ### 3. UserWidget의 기능 WidgetSwitcher
-WidgetSwitcher는 같은 인덱스 내에 있는 Widget들을 이벤트를 이용해 번갈아 보여줄 수 있다. 여기서 어떤 위젯을 바꿔줄 지 인수를 정해줘야하는데 인수값이 UWidget이라 헤더에서 UWidget으로 선언해주었다.<br>
+WidgetSwitcher는 같은 인덱스 내에 있는 Widget들을 이벤트를 이용해 번갈아 보여줄 수 있다. <br>
+여기서 어떤 위젯을 바꿔줄 지 인수를 정해줘야하는데 인수값이 UWidget이라 헤더에서 UWidget으로 선언해주었다.<br>
 ```
 // MainMenu.h
 
@@ -114,3 +115,17 @@ MenuSwitcher->SetActiveWidget(JoinMenu);
 
 
 ### 4. 서버로부터 클라이언트를 분리하는 문법
+
+```
+// PuzzlePlatformsGameInstance.cpp
+
+void UPuzzlePlatformsGameInstance::LoadMainMenu()
+{
+	APlayerController* PlayerController = GetFirstLocalPlayerController();
+	if (!ensure(PlayerController != nullptr)) return;
+
+	PlayerController->ClientTravel("/Game/Maps/MainMenu?listen", ETravelType::TRAVEL_Absolute);
+}
+
+```
+
