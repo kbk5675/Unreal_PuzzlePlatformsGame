@@ -40,7 +40,10 @@ GameInstance가 UserInterface를 상속 받게 한다. <br> <br>
 <br>
 
 ### 2. UserWidget의 추상화
-게임을 제작하면서 만든 UserWidgetClass가 2개인데 내용이 많이 겹치게 되서 UserWidget Base를 따로 만들어 상속받게 만들었다(InGameMenu, MainMenu).
+게임을 제작하면서 만든 UserWidgetClass가 2개인데 내용이 많이 겹치게 되서 UserWidget Base를 따로 만들어 상속받게 만들었다. 
+<br>
+UserWiget Class 2개 : InGameMenu, MainMenu 
+<br>
 MenuWidget.class를 하나 만들고 겹치는 내용들을 옮겨 주었다. 
 <br>
 <br>
@@ -64,6 +67,38 @@ protected:
 
 ```
 <br>
+
+<br>
+```
+// PuzzlePlatformsGameInstance.cpp
+
+// 상속받은 함수를 사용( Setup(), SetMenuInterface() )
+void UPuzzlePlatformsGameInstance::LoadMenu()
+{
+	if (!ensure( MainMenuClass!= nullptr)) return;
+	MainMenu = CreateWidget<UMainMenu>(this, MainMenuClass);
+	if (!ensure(MainMenu != nullptr)) return;
+
+	MainMenu->Setup();
+
+	MainMenu->SetMenuInterface(this);
+}
+
+// 위와 같이 사용
+void UPuzzlePlatformsGameInstance::InGameLoadMenu()
+{
+	if (!ensure(InGameMenuClass != nullptr)) return;
+	UMenuWidget* InGameMenu = CreateWidget<UMenuWidget>(this, InGameMenuClass);
+	if (!ensure(InGameMenu != nullptr)) return;
+
+	InGameMenu->Setup();
+
+	InGameMenu->SetMenuInterface(this);
+}
+
+```
+<br>
+
 
 ### 3. UserWidget의 기능 WidgetSwitcher
 
