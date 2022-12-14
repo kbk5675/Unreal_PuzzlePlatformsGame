@@ -1,4 +1,7 @@
 
+```
+코드를 입력하세요
+```
 # 알아가야 할 중요 포인트
 
 ### 1. UserWidget Interface 사용
@@ -67,8 +70,9 @@ protected:
 
 ```
 <br>
-아래와 같이 상속받은 함수를 사용( Setup(), SetMenuInterface() )
-<br>
+아래와 같이 상속받은 함수를 사용 Setup(), SetMenuInterface() <br> <br>
+
+
 ```
 // PuzzlePlatformsGameInstance.cpp
 
@@ -100,5 +104,13 @@ void UPuzzlePlatformsGameInstance::InGameLoadMenu()
 
 
 ### 3. UserWidget의 기능 WidgetSwitcher
+WidgetSwitcher는 같은 인덱스 내에 있는 Widget들을 이벤트를 이용해 번갈아 보여줄 수 있다.
+<br>
+```
+// MainMenu.cpp
+
+MenuSwitcher->SetActiveWidget(JoinMenu);
+
+```
 
 ### 4. 서버로부터 클라이언트를 분리하는 문법
