@@ -20,6 +20,23 @@ GameInstance가 UserInterface를 상속 받게 한다. <br> <br>
 <br>
 
 ### 2. UserWidget의 추상화
+게임을 제작하면서 만든 UserWidgetClass가 2개인데 내용이 많이 겹치게 되서 UserWidget Base를 따로 만들어 상속받게 만들었다(InGameMenu, MainMenu).
+MenuWidget.class를 하나 만들고 겹치는 내용들을 옮겨 주었다. 
+<br>
+<br>
+```
+//MenuWidget.h
+
+public:
+	void SetMenuInterface(IMenuInterface* Interface);
+	void Setup();
+
+protected:
+	virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld) override;
+
+	IMenuInterface* MenuInterface;
+```
+<br>
 
 ### 3. UserWidget의 기능 WidgetSwitcher
 
