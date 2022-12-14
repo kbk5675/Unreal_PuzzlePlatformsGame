@@ -67,7 +67,6 @@ protected:
 
 ```
 <br>
-
 <br>
 ```
 // PuzzlePlatformsGameInstance.cpp
