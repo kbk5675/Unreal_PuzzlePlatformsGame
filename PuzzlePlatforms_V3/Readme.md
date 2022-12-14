@@ -8,10 +8,30 @@ C++에서는 순수가상함수를 반드시 어딘가 구현해줘야 빌드가
 <br>
 <br>
 ```
+// MenuInterface.h
+
+public:
+	// This class does not need to be modified.
+UINTERFACE(MinimalAPI)
+class UMenuInterface : public UInterface
+{
+	GENERATED_BODY()
+};
+
+/**
+ * 
+ */
+class PUZZLEPLATFORMS_API IMenuInterface
+{
+	GENERATED_BODY()
+
+	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	virtual void Host() = 0;
 	virtual void Join(const FString& Address) = 0;
 	virtual void LoadMainMenu() = 0;
+};
+
 ```
 <br>
 
@@ -27,6 +47,11 @@ MenuWidget.class를 하나 만들고 겹치는 내용들을 옮겨 주었다.
 ```
 //MenuWidget.h
 
+UCLASS()
+class PUZZLEPLATFORMS_API UMenuWidget : public UUserWidget
+{
+	GENERATED_BODY()
+
 public:
 	void SetMenuInterface(IMenuInterface* Interface);
 	void Setup();
@@ -35,6 +60,8 @@ protected:
 	virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld) override;
 
 	IMenuInterface* MenuInterface;
+};
+
 ```
 <br>
 
